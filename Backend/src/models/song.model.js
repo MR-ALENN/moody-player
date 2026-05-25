@@ -1,11 +1,29 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose"
 
-const songSchema = new mongoose.Schema({
-    title:String,
-    artist:String,
-    audio:String
-})
+const songSchema = new mongoose.Schema(
 
-const song = mongooses.model('song',songSchema)
+  {
+    mood: {
+      type: String,
+      required: true,
+    },
 
-module.exports = song;
+    confidence: {
+      type: Number,
+      required: true,
+    },
+
+    happy: Number,
+    neutral: Number,
+    surprised: Number,
+  },
+
+  {
+    timestamps: true,
+  }
+
+)
+
+const Song = mongoose.model("Song", songSchema)
+
+export default Song
